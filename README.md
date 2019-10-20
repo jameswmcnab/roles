@@ -1,11 +1,11 @@
-[![Build Status](https://travis-ci.org/ultraware/roles.svg?branch=master)](https://travis-ci.org/ultraware/roles)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ultraware/roles/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ultraware/roles/?branch=5.1)
-[![StyleCI](https://styleci.io/repos/74971525/shield?branch=master)](https://styleci.io/repos/74971525)
-[![Coverage Status](https://coveralls.io/repos/github/ultraware/roles/badge.svg?branch=master)](https://coveralls.io/github/ultraware/roles?branch=5.1)
+[![Build Status](https://travis-ci.org/jameswmcnab/roles.svg?branch=6.0)](https://travis-ci.org/jameswmcnab/roles)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jameswmcnab/roles/badges/quality-score.png?b=6.0)](https://scrutinizer-ci.com/g/jameswmcnab/roles/?branch=6.0)
+[![StyleCI](https://styleci.io/repos/216346252/shield?branch=6.0)](https://styleci.io/repos/216346252)
+[![Coverage Status](https://coveralls.io/repos/github/jameswmcnab/roles/badge.svg?branch=6.0)](https://coveralls.io/github/jameswmcnab/roles?branch=6.0)
 
-# Roles And Permissions For Laravel 5
+# Roles And Permissions For Laravel 6
 
-Powerful package for handling roles and permissions in Laravel 5.
+Powerful package for handling roles and permissions in Laravel 6.
 
 - [Installation](#installation)
     - [Composer](#composer)
@@ -35,13 +35,9 @@ This package is very easy to set up. There are only couple of steps.
 
 ### Composer
 
-Pull this package in through Composer 
-```
-composer require ultraware/roles
-```
+~~Pull this package in through Composer~~.
 
-> If you are still using Laravel 5.0, you must pull in version `1.7.*`.
-
+This package is a fork I'm maintaining for a short time, and will not be submitted to packagist.
 
 ### Service Provider
 
