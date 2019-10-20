@@ -415,12 +415,12 @@ trait HasRoleAndPermission
 
     public function callMagic($method, $parameters)
     {
-        if (starts_with($method, 'is')) {
-            return $this->hasRole(snake_case(substr($method, 2), config('roles.separator')));
-        } elseif (starts_with($method, 'can')) {
-            return $this->hasPermission(snake_case(substr($method, 3), config('roles.separator')));
-        } elseif (starts_with($method, 'allowed')) {
-            return $this->allowed(snake_case(substr($method, 7), config('roles.separator')), $parameters[0], (isset($parameters[1])) ? $parameters[1] : true, (isset($parameters[2])) ? $parameters[2] : 'user_id');
+        if (Str::startsWith($method, 'is')) {
+            return $this->hasRole(Str::snake(substr($method, 2), config('roles.separator')));
+        } elseif (Str::startsWith($method, 'can')) {
+            return $this->hasPermission(Str::snake(substr($method, 3), config('roles.separator')));
+        } elseif (Str::startsWith($method, 'allowed')) {
+            return $this->allowed(Str::snake(substr($method, 7), config('roles.separator')), $parameters[0], (isset($parameters[1])) ? $parameters[1] : true, (isset($parameters[2])) ? $parameters[2] : 'user_id');
         }
 
         return parent::__call($method, $parameters);
