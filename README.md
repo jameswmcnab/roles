@@ -3,7 +3,7 @@
 [![StyleCI](https://styleci.io/repos/216346252/shield?branch=6.0)](https://styleci.io/repos/216346252)
 [![Coverage Status](https://coveralls.io/repos/github/jameswmcnab/roles/badge.svg?branch=6.0)](https://coveralls.io/github/jameswmcnab/roles?branch=6.0)
 
-# Roles And Permissions For Laravel 6
+# Roles And Permissions For Laravel 7
 
 Powerful package for handling roles and permissions in Laravel 6.
 
