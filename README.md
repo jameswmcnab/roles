@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/jameswmcnab/roles.svg?branch=6.0)](https://travis-ci.org/jameswmcnab/roles)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jameswmcnab/roles/badges/quality-score.png?b=6.0)](https://scrutinizer-ci.com/g/jameswmcnab/roles/?branch=6.0)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jameswmcnab/roles/badges/quality-score.png?b=6.0)](https://scrutinizer-ci.com/g/jameswmcnab/roles/?branch=7.0)
 [![StyleCI](https://styleci.io/repos/216346252/shield?branch=6.0)](https://styleci.io/repos/216346252)
-[![Coverage Status](https://coveralls.io/repos/github/jameswmcnab/roles/badge.svg?branch=6.0)](https://coveralls.io/github/jameswmcnab/roles?branch=6.0)
+[![Coverage Status](https://coveralls.io/repos/github/jameswmcnab/roles/badge.svg?branch=6.0)](https://coveralls.io/github/jameswmcnab/roles?branch=7.0)
 
 # Roles And Permissions For Laravel 7
 
