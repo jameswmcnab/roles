@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/jameswmcnab/roles.svg?branch=6.0)](https://travis-ci.org/jameswmcnab/roles)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jameswmcnab/roles/badges/quality-score.png?b=6.0)](https://scrutinizer-ci.com/g/jameswmcnab/roles/?branch=7.0)
-[![StyleCI](https://styleci.io/repos/216346252/shield?branch=6.0)](https://styleci.io/repos/216346252)
-[![Coverage Status](https://coveralls.io/repos/github/jameswmcnab/roles/badge.svg?branch=6.0)](https://coveralls.io/github/jameswmcnab/roles?branch=7.0)
+[![Build Status](https://travis-ci.org/jameswmcnab/roles.svg?branch=8.0)](https://travis-ci.org/jameswmcnab/roles)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jameswmcnab/roles/badges/quality-score.png?b=8.0)](https://scrutinizer-ci.com/g/jameswmcnab/roles/?branch=8.0)
+[![StyleCI](https://styleci.io/repos/216346252/shield?branch=8.0)](https://styleci.io/repos/216346252)
+[![Coverage Status](https://coveralls.io/repos/github/jameswmcnab/roles/badge.svg?branch=8.0)](https://coveralls.io/github/jameswmcnab/roles?branch=8.0)
 
-# Roles And Permissions For Laravel 7
+# Roles And Permissions For Laravel 8
 
 Powerful package for handling roles and permissions in Laravel 7.
 
