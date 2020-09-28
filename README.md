@@ -5,7 +5,7 @@
 
 # Roles And Permissions For Laravel 8
 
-Powerful package for handling roles and permissions in Laravel 7.
+Powerful package for handling roles and permissions in Laravel 8.
 
 - [Installation](#installation)
     - [Composer](#composer)
