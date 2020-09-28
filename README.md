@@ -9,7 +9,6 @@ Powerful package for handling roles and permissions in Laravel 8.
 
 - [Installation](#installation)
     - [Composer](#composer)
-    - [Service Provider](#service-provider)
     - [Config File And Migrations](#config-file-and-migrations)
     - [HasRoleAndPermission Trait And Contract](#hasroleandpermission-trait-and-contract)
     - [Migrate from Bican roles](#Migrate-from-bican-roles)
@@ -39,22 +38,7 @@ This package is very easy to set up. There are only couple of steps.
 
 This package is a fork I'm maintaining for a short time, and will not be submitted to packagist.
 
-### Service Provider
-
-Add the package to your application service providers in `config/app.php` file.
-
-```php
-'providers' => [
-    
-    ...
-    
-    /**
-     * Third Party Service Providers...
-     */
-    Ultraware\Roles\RolesServiceProvider::class,
-
-],
-```
+Laravel uses Package Auto-Discovery, so doesn't require you to manually add the ServiceProvider.
 
 ### Config File And Migrations
 
