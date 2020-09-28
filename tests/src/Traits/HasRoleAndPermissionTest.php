@@ -70,7 +70,8 @@ class HasRoleAndPermissionTest extends \TestCase
         // only permissions of role 0 should be found
         $this->assertEquals(
             $permissions->toBase()->only([0, 1])->pluck('id')->toArray(),
-            $user->rolePermissions()->get()->pluck('id')->toArray());
+            $user->rolePermissions()->get()->pluck('id')->toArray()
+        );
 
         // reset cache
         $user->detachRole(null);
