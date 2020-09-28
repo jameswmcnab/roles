@@ -32,7 +32,7 @@ trait HasRoleAndPermission
      *
      * @return BelongsToMany
      */
-    public function roles()
+    public function roles(): BelongsToMany
     {
         return $this->belongsToMany(config('roles.models.role'))->withTimestamps();
     }
@@ -42,7 +42,7 @@ trait HasRoleAndPermission
      *
      * @return Collection
      */
-    public function getRoles()
+    public function getRoles(): Collection
     {
         return (!$this->roles) ? $this->roles = $this->roles()->get() : $this->roles;
     }
@@ -54,7 +54,7 @@ trait HasRoleAndPermission
      * @param bool $all
      * @return bool
      */
-    public function hasRole($role, $all = false)
+    public function hasRole($role, $all = false): bool
     {
         if ($this->isPretendEnabled()) {
             return $this->pretend('hasRole');
@@ -73,7 +73,7 @@ trait HasRoleAndPermission
      * @param int|string|array $role
      * @return bool
      */
-    public function hasOneRole($role)
+    public function hasOneRole($role): bool
     {
         foreach ($this->getArrayFrom($role) as $role) {
             if ($this->checkRole($role)) {
@@ -90,7 +90,7 @@ trait HasRoleAndPermission
      * @param int|string|array $role
      * @return bool
      */
-    public function hasAllRoles($role)
+    public function hasAllRoles($role): bool
     {
         foreach ($this->getArrayFrom($role) as $role) {
             if (!$this->checkRole($role)) {
@@ -107,7 +107,7 @@ trait HasRoleAndPermission
      * @param int|string $role
      * @return bool
      */
-    public function checkRole($role)
+    public function checkRole($role): bool
     {
         return $this->getRoles()->contains(function ($value) use ($role) {
             return $role == $value->id || Str::is($role, $value->slug);
@@ -120,7 +120,7 @@ trait HasRoleAndPermission
      * @param int|Role $role
      * @return null|bool
      */
-    public function attachRole($role)
+    public function attachRole($role): ?bool
     {
         if ($this->getRoles()->contains($role)) {
             return true;
@@ -135,7 +135,7 @@ trait HasRoleAndPermission
      * @param int|Role $role
      * @return int
      */
-    public function detachRole($role)
+    public function detachRole($role): int
     {
         $this->roles = null;
 
@@ -147,7 +147,7 @@ trait HasRoleAndPermission
      *
      * @return int
      */
-    public function detachAllRoles()
+    public function detachAllRoles(): int
     {
         $this->roles = null;
 
@@ -160,7 +160,7 @@ trait HasRoleAndPermission
      * @param array|\Ultraware\Roles\Models\Role[]|\Illuminate\Database\Eloquent\Collection $roles
      * @return array
      */
-    public function syncRoles($roles)
+    public function syncRoles($roles): array
     {
         $this->roles = null;
 
@@ -172,7 +172,7 @@ trait HasRoleAndPermission
      *
      * @return int
      */
-    public function level()
+    public function level(): int
     {
         return ($role = $this->getRoles()->sortByDesc('level')->first()) ? $role->level : 0;
     }
@@ -182,7 +182,7 @@ trait HasRoleAndPermission
      *
      * @return Builder
      */
-    public function rolePermissions()
+    public function rolePermissions(): Builder
     {
         $permissionModel = app(config('roles.models.permission'));
 
@@ -204,7 +204,7 @@ trait HasRoleAndPermission
      *
      * @return BelongsToMany
      */
-    public function userPermissions()
+    public function userPermissions(): BelongsToMany
     {
         return $this->belongsToMany(config('roles.models.permission'))->withTimestamps();
     }
@@ -214,7 +214,7 @@ trait HasRoleAndPermission
      *
      * @return Collection
      */
-    public function getPermissions()
+    public function getPermissions(): Collection
     {
         return (!$this->permissions) ? $this->permissions = $this->rolePermissions()->get()->merge($this->userPermissions()->get()) : $this->permissions;
     }
@@ -226,7 +226,7 @@ trait HasRoleAndPermission
      * @param bool $all
      * @return bool
      */
-    public function hasPermission($permission, $all = false)
+    public function hasPermission($permission, $all = false): bool
     {
         if ($this->isPretendEnabled()) {
             return $this->pretend('hasPermission');
@@ -245,7 +245,7 @@ trait HasRoleAndPermission
      * @param int|string|array $permission
      * @return bool
      */
-    public function hasOnePermission($permission)
+    public function hasOnePermission($permission): bool
     {
         foreach ($this->getArrayFrom($permission) as $permission) {
             if ($this->checkPermission($permission)) {
@@ -262,7 +262,7 @@ trait HasRoleAndPermission
      * @param int|string|array $permission
      * @return bool
      */
-    public function hasAllPermissions($permission)
+    public function hasAllPermissions($permission): bool
     {
         foreach ($this->getArrayFrom($permission) as $permission) {
             if (!$this->checkPermission($permission)) {
@@ -279,7 +279,7 @@ trait HasRoleAndPermission
      * @param int|string $permission
      * @return bool
      */
-    public function checkPermission($permission)
+    public function checkPermission($permission): bool
     {
         return $this->getPermissions()->contains(function ($value) use ($permission) {
             return $permission == $value->id || Str::is($permission, $value->slug);
@@ -295,7 +295,7 @@ trait HasRoleAndPermission
      * @param string $ownerColumn
      * @return bool
      */
-    public function allowed($providedPermission, Model $entity, $owner = true, $ownerColumn = 'user_id')
+    public function allowed($providedPermission, Model $entity, $owner = true, $ownerColumn = 'user_id'): bool
     {
         if ($this->isPretendEnabled()) {
             return $this->pretend('allowed');
@@ -315,7 +315,7 @@ trait HasRoleAndPermission
      * @param Model $entity
      * @return bool
      */
-    protected function isAllowed($providedPermission, Model $entity)
+    protected function isAllowed($providedPermission, Model $entity): bool
     {
         foreach ($this->getPermissions() as $permission) {
             if ($permission->model != '' && get_class($entity) == $permission->model
@@ -334,7 +334,7 @@ trait HasRoleAndPermission
      * @param int|Permission $permission
      * @return null|bool
      */
-    public function attachPermission($permission)
+    public function attachPermission($permission): ?bool
     {
         if ($this->getPermissions()->contains($permission)) {
             return true;
@@ -349,7 +349,7 @@ trait HasRoleAndPermission
      * @param int|Permission $permission
      * @return int
      */
-    public function detachPermission($permission)
+    public function detachPermission($permission): int
     {
         $this->permissions = null;
 
@@ -361,7 +361,7 @@ trait HasRoleAndPermission
      *
      * @return int
      */
-    public function detachAllPermissions()
+    public function detachAllPermissions(): int
     {
         $this->permissions = null;
 
@@ -374,7 +374,7 @@ trait HasRoleAndPermission
      * @param array|\Ultraware\Roles\Models\Permission[]|\Illuminate\Database\Eloquent\Collection $permissions
      * @return array
      */
-    public function syncPermissions($permissions)
+    public function syncPermissions($permissions): array
     {
         $this->permissions = null;
 
@@ -386,7 +386,7 @@ trait HasRoleAndPermission
      *
      * @return bool
      */
-    private function isPretendEnabled()
+    private function isPretendEnabled(): bool
     {
         return (bool) config('roles.pretend.enabled');
     }
@@ -397,7 +397,7 @@ trait HasRoleAndPermission
      * @param string $option
      * @return bool
      */
-    private function pretend($option)
+    private function pretend($option): bool
     {
         return (bool) config('roles.pretend.options.' . $option);
     }

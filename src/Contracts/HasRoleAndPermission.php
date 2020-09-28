@@ -16,14 +16,14 @@ interface HasRoleAndPermission
      *
      * @return BelongsToMany
      */
-    public function roles();
+    public function roles(): BelongsToMany;
 
     /**
      * Get all roles as collection.
      *
      * @return Collection
      */
-    public function getRoles();
+    public function getRoles(): Collection;
 
     /**
      * Check if the user has a role or roles.
@@ -32,7 +32,7 @@ interface HasRoleAndPermission
      * @param bool $all
      * @return bool
      */
-    public function hasRole($role, $all = false);
+    public function hasRole($role, $all = false): bool;
 
     /**
      * Check if the user has at least one of the given roles.
@@ -40,7 +40,7 @@ interface HasRoleAndPermission
      * @param int|string|array $role
      * @return bool
      */
-    public function hasOneRole($role);
+    public function hasOneRole($role): bool;
 
     /**
      * Check if the user has all roles.
@@ -48,7 +48,7 @@ interface HasRoleAndPermission
      * @param int|string|array $role
      * @return bool
      */
-    public function hasAllRoles($role);
+    public function hasAllRoles($role): bool;
 
     /**
      * Check if the user has role.
@@ -56,7 +56,7 @@ interface HasRoleAndPermission
      * @param int|string $role
      * @return bool
      */
-    public function checkRole($role);
+    public function checkRole($role): bool;
 
     /**
      * Attach role to a user.
@@ -64,7 +64,7 @@ interface HasRoleAndPermission
      * @param int|Role $role
      * @return null|bool
      */
-    public function attachRole($role);
+    public function attachRole($role): ?bool;
 
     /**
      * Detach role from a user.
@@ -72,14 +72,14 @@ interface HasRoleAndPermission
      * @param int|Role $role
      * @return int
      */
-    public function detachRole($role);
+    public function detachRole($role): int;
 
     /**
      * Detach all roles from a user.
      *
      * @return int
      */
-    public function detachAllRoles();
+    public function detachAllRoles(): int;
 
     /**
      * Sync roles for a user.
@@ -87,35 +87,35 @@ interface HasRoleAndPermission
      * @param array|Role[]|Collection $roles
      * @return array
      */
-    public function syncRoles($roles);
+    public function syncRoles($roles): array;
 
     /**
      * Get role level of a user.
      *
      * @return int
      */
-    public function level();
+    public function level(): int;
 
     /**
      * Get all permissions from roles.
      *
      * @return Builder
      */
-    public function rolePermissions();
+    public function rolePermissions(): Builder;
 
     /**
      * User belongs to many permissions.
      *
      * @return BelongsToMany
      */
-    public function userPermissions();
+    public function userPermissions(): BelongsToMany;
 
     /**
      * Get all permissions as collection.
      *
      * @return Collection
      */
-    public function getPermissions();
+    public function getPermissions(): Collection;
 
     /**
      * Check if the user has a permission or permissions.
@@ -124,7 +124,7 @@ interface HasRoleAndPermission
      * @param bool $all
      * @return bool
      */
-    public function hasPermission($permission, $all = false);
+    public function hasPermission($permission, $all = false): bool;
 
     /**
      * Check if the user has at least one of the given permissions.
@@ -132,7 +132,7 @@ interface HasRoleAndPermission
      * @param int|string|array $permission
      * @return bool
      */
-    public function hasOnePermission($permission);
+    public function hasOnePermission($permission): bool;
 
     /**
      * Check if the user has all permissions.
@@ -140,7 +140,7 @@ interface HasRoleAndPermission
      * @param int|string|array $permission
      * @return bool
      */
-    public function hasAllPermissions($permission);
+    public function hasAllPermissions($permission): bool;
 
     /**
      * Check if the user has a permission.
@@ -148,7 +148,7 @@ interface HasRoleAndPermission
      * @param int|string $permission
      * @return bool
      */
-    public function checkPermission($permission);
+    public function checkPermission($permission): bool;
 
     /**
      * Check if the user is allowed to manipulate with entity.
@@ -159,7 +159,7 @@ interface HasRoleAndPermission
      * @param string $ownerColumn
      * @return bool
      */
-    public function allowed($providedPermission, Model $entity, $owner = true, $ownerColumn = 'user_id');
+    public function allowed($providedPermission, Model $entity, $owner = true, $ownerColumn = 'user_id'): bool;
 
     /**
      * Attach permission to a user.
@@ -167,7 +167,7 @@ interface HasRoleAndPermission
      * @param int|Permission $permission
      * @return null|bool
      */
-    public function attachPermission($permission);
+    public function attachPermission($permission): ?bool;
 
     /**
      * Detach permission from a user.
@@ -175,14 +175,14 @@ interface HasRoleAndPermission
      * @param int|Permission $permission
      * @return int
      */
-    public function detachPermission($permission);
+    public function detachPermission($permission): int;
 
     /**
      * Detach all permissions from a user.
      *
      * @return int
      */
-    public function detachAllPermissions();
+    public function detachAllPermissions(): int;
 
     /**
      * Sync permissions for a user.
@@ -190,5 +190,5 @@ interface HasRoleAndPermission
      * @param array|Permission[]|Collection $permissions
      * @return array
      */
-    public function syncPermissions($permissions);
+    public function syncPermissions($permissions): array;
 }

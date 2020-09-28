@@ -10,7 +10,7 @@ class TestCase extends TestBenchTestCase
         parent::setUp();
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [Ultraware\Roles\RolesServiceProvider::class, TestMigrationsServiceProvider::class];
     }
@@ -21,12 +21,12 @@ class TestCase extends TestBenchTestCase
      * @param  \Illuminate\Foundation\Application $app
      * @return void
      */
-    protected function resolveApplicationConsoleKernel($app)
+    protected function resolveApplicationConsoleKernel($app): void
     {
         $app->singleton(Illuminate\Contracts\Console\Kernel::class, Orchestra\Testbench\Console\Kernel::class);
     }
 
-    protected function setupDbConfig($app)
+    protected function setupDbConfig($app): void
     {
         // Setup default database to use sqlite :memory:
         $app['config']->set('database.default', 'testbench');
@@ -37,7 +37,7 @@ class TestCase extends TestBenchTestCase
         ]);
     }
 
-    protected function runMigrations()
+    protected function runMigrations(): void
     {
         $this->loadMigrationsFrom([
             '--database' => 'testbench',
@@ -47,10 +47,10 @@ class TestCase extends TestBenchTestCase
 
 class TestMigrationsServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $this->loadMigrationsFrom([
-            realpath(__DIR__ . '/../migrations'),
+            dirname(__DIR__) . '/migrations',
             realpath(__DIR__ . '/database/migrations')
         ]);
     }

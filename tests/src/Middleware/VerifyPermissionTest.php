@@ -8,7 +8,7 @@ use Ultraware\Roles\Middleware\VerifyPermission;
 
 class VerifyPermissionTest extends TestCase
 {
-    public function testUserHasPermission()
+    public function testUserHasPermission(): void
     {
         $guard = \Mockery::mock(Guard::class);
         $user = \Mockery::mock(User::class);
@@ -24,7 +24,7 @@ class VerifyPermissionTest extends TestCase
         $this->assertEquals('next was called', $result);
     }
 
-    public function testUserHasPermission_throwsException()
+    public function testUserHasPermission_throwsException(): void
     {
         $guard = \Mockery::mock(Guard::class);
         $user = \Mockery::mock(User::class);

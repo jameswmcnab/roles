@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Ultraware\Roles\Exceptions\RoleDeniedException;
@@ -7,7 +8,7 @@ use Ultraware\Roles\Middleware\VerifyRole;
 
 class VerifyRoleTest extends TestCase
 {
-    public function testUserHasPermission()
+    public function testUserHasPermission(): void
     {
         $guard = \Mockery::mock(Guard::class);
         $user = \Mockery::mock(User::class);
@@ -23,7 +24,7 @@ class VerifyRoleTest extends TestCase
         $this->assertEquals('next was called', $result);
     }
 
-    public function testUserHasPermission_throwsException()
+    public function testUserHasPermission_throwsException(): void
     {
         $guard = \Mockery::mock(Guard::class);
         $user = \Mockery::mock(User::class);

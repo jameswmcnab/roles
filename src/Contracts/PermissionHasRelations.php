@@ -11,12 +11,12 @@ interface PermissionHasRelations
      *
      * @return BelongsToMany
      */
-    public function roles();
+    public function roles(): BelongsToMany;
 
     /**
      * Permission belongs to many users.
      *
      * @return BelongsToMany
      */
-    public function users();
+    public function users(): BelongsToMany;
 }

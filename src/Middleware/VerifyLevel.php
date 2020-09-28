@@ -33,7 +33,7 @@ class VerifyLevel
      * @return mixed
      * @throws \Ultraware\Roles\Exceptions\LevelDeniedException
      */
-    public function handle($request, Closure $next, $level)
+    public function handle(Request $request, Closure $next, $level)
     {
         if ($this->auth->check() && $this->auth->user()->level() >= $level) {
             return $next($request);

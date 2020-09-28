@@ -13,14 +13,14 @@ interface RoleHasRelations
      *
      * @return BelongsToMany
      */
-    public function permissions();
+    public function permissions(): BelongsToMany;
 
     /**
      * Role belongs to many users.
      *
      * @return BelongsToMany
      */
-    public function users();
+    public function users(): BelongsToMany;
 
     /**
      * Attach permission to a role.
@@ -36,14 +36,14 @@ interface RoleHasRelations
      * @param int|Permission $permission
      * @return int
      */
-    public function detachPermission($permission);
+    public function detachPermission($permission): int;
 
     /**
      * Detach all permissions.
      *
      * @return int
      */
-    public function detachAllPermissions();
+    public function detachAllPermissions(): int;
 
     /**
      * Sync permissions for a role.
@@ -51,5 +51,5 @@ interface RoleHasRelations
      * @param array|Permission[]|Collection $permissions
      * @return array
      */
-    public function syncPermissions($permissions);
+    public function syncPermissions($permissions): array;
 }

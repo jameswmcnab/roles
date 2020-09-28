@@ -13,7 +13,7 @@ trait RoleHasRelations
      *
      * @return BelongsToMany
      */
-    public function permissions()
+    public function permissions(): BelongsToMany
     {
         return $this->belongsToMany(config('roles.models.permission'))->withTimestamps();
     }
@@ -23,7 +23,7 @@ trait RoleHasRelations
      *
      * @return BelongsToMany
      */
-    public function users()
+    public function users(): BelongsToMany
     {
         return $this->belongsToMany(config('auth.providers.users.model'))->withTimestamps();
     }
@@ -45,7 +45,7 @@ trait RoleHasRelations
      * @param int|Permission $permission
      * @return int
      */
-    public function detachPermission($permission)
+    public function detachPermission($permission): int
     {
         return $this->permissions()->detach($permission);
     }
@@ -55,7 +55,7 @@ trait RoleHasRelations
      *
      * @return int
      */
-    public function detachAllPermissions()
+    public function detachAllPermissions(): int
     {
         return $this->permissions()->detach();
     }
@@ -66,7 +66,7 @@ trait RoleHasRelations
      * @param array|Permission[]|Collection $permissions
      * @return array
      */
-    public function syncPermissions($permissions)
+    public function syncPermissions($permissions): array
     {
         return $this->permissions()->sync($permissions);
     }
